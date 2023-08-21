@@ -30,10 +30,6 @@ export async function checkWeather(city: string): Promise<any> {
         throw new Error(data.message);
     }
 
-    return {
-        temperature: data.main.temp,
-        description: data.weather[0].description,
-        city: data.name,
-        country: data.sys.country
-    };
+    return data;
 }
+

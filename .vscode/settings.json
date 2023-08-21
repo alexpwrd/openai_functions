@@ -1,3 +1,8 @@
 {
-    "terminal.integrated.defaultLocation": "view"
+    "terminal.integrated.defaultLocation": "view",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#07342F",
+        "titleBar.activeBackground": "#094842",
+        "titleBar.activeForeground": "#EEFDFB"
+    }
 }
