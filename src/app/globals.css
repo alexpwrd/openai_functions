@@ -2,26 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-gray-100 font-sans text-black;
+}
+
+/* Chat container */
+.chat-container {
+  max-width: 1200px;
+  @apply w-full mx-auto mt-10 mb-10 p-6 shadow-2xl rounded-2xl bg-white;
+  min-height: 85vh;
+  border: 1px solid #E5E7EB;
+  padding-bottom: 10px; /* Adjust based on the new height of the text input area */
+}
+
+/* Messages */
+li.prose {
+  @apply w-full mb-6;
+}
+
+li.prose.user {
+  @apply flex justify-end mb-4;
+}
+
+li.prose.ai {
+  @apply mb-4;
+}
+
+li.prose.user .message-content {
+  @apply bg-blue-500 text-white rounded-bl-lg rounded-tl-lg rounded-tr-lg py-4 px-6;
+}
+
+li.prose.ai .message-content {
+  @apply bg-gray-200 text-gray-800 rounded-br-lg rounded-tl-lg rounded-tr-lg py-4 px-6;
+}
+
+/* Chat input form */
+form {
+  @apply flex-grow absolute bottom-0 left-1/2 transform -translate-x-1/2 flex p-5 bg-transparent;
+  width: 35%;  /* you can adjust this value as needed */
+}
+
+input {
+  @apply flex-grow border-2 border-blue-200 rounded-l-full focus:border-blue-400 focus:ring-1 focus:ring-blue-400 focus:shadow-inner py-5 px-6 transition-all duration-200 text-xl; /* increased padding and font size */
+}
+
+button[type="submit"] {
+  @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-4 rounded-r-full hover:from-blue-600 hover:to-blue-700 active:from-blue-700 active:to-blue-800 transition-all duration-200 focus:outline-none shadow-md; /* increased padding */
+}
+
+
+/* Table styles */
+table {
+  @apply w-full border-collapse text-sm;
+}
+
+th, td {
+  @apply border border-gray-300 p-4;
+}
+
+th {
+  @apply bg-gray-200;
+}
+
+tbody tr:nth-child(odd) {
+  @apply bg-gray-100;
+}
+
+/* Inline code styles for chat container specifically */
+.chat-container code {
+  @apply bg-gray-200 px-2 py-1 rounded text-sm font-mono;
+}
+
+/* Multi-line code block styles for chat container specifically */
+.chat-container pre {
+  @apply bg-gray-800 p-5 rounded text-black font-mono border border-gray-700 overflow-x-auto text-sm;
 }
